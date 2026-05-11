@@ -1,0 +1,34 @@
+# dependencies
+node_modules
+
+# next.js
+.next
+out
+.vercel
+
+# production
+build
+dist
+
+# local env files
+.env
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# generated typecheck cache
+tsconfig.tsbuildinfo
+
+# local AI workflow prompts
+ai_agents/
+docs/ai-agents/
+docs/build-phases/
+phases_ai_prompts/
+
+# system files
+.DS_Store
+Thumbs.db

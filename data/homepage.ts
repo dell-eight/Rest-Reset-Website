@@ -27,7 +27,7 @@ export const bundleItems = [
 
 export const benefits = [
   {
-    title: "Better bedtime routine",
+    title: "A repeatable bedtime routine",
     description:
       "Use a simple set of cues to make evenings feel less scattered and more repeatable."
   },
@@ -37,7 +37,7 @@ export const benefits = [
       "Reduce light and noise interruptions so your wind-down time has fewer rough edges."
   },
   {
-    title: "Relaxing sleep environment",
+    title: "A calmer sleep environment",
     description:
       "Create a calmer space with practical tools that support rest-friendly habits."
   },
@@ -80,7 +80,7 @@ export const faqs = [
   {
     question: "Is the Sleep Reset Kit a medical product?",
     answer:
-      "No. It is a collection of everyday tools designed to support better sleep routines and calmer rest habits."
+      "No. It is a collection of everyday tools designed to support better sleep routines and calmer rest habits. It does not diagnose, treat, cure, or prevent sleep disorders."
   },
   {
     question: "Who is this kit for?",

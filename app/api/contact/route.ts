@@ -37,6 +37,6 @@ export async function POST(request: Request) {
     success: true,
     persisted: false,
     message:
-      "Thanks. Your message was accepted in this pre-launch flow. Support delivery will be connected before launch."
+      "Thanks. Your message was received. Support delivery will be connected before launch."
   });
 }

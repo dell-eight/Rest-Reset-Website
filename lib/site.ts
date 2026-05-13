@@ -13,26 +13,34 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Learn", href: "/learn" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" }
+  { label: "FAQ", href: "/faq" },
+  { label: "About", href: "/about" }
 ] as const;
 
 export const footerLinkGroups = [
   {
     title: "Shop",
     links: [
-      { label: "Products", href: "/products" },
       { label: "Sleep Reset Kit", href: "/products/sleep-reset-kit" },
-      { label: "Learn", href: "/learn" },
-      { label: "FAQ", href: "/faq" }
+      { label: "All products", href: "/products" },
+      { label: "Launch list", href: "/products/sleep-reset-kit#email-capture" }
     ]
   },
   {
-    title: "Company",
+    title: "Learn",
     links: [
-      { label: "About", href: "/about" },
+      { label: "Education hub", href: "/learn" },
+      { label: "Sleep hygiene basics", href: "/learn/sleep-hygiene-basics-screen-heavy-workers" },
+      { label: "Bedtime routine guide", href: "/learn/simple-bedtime-routine" }
+    ]
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
-      { label: "Shipping", href: "/shipping" }
+      { label: "Shipping", href: "/shipping" },
+      { label: "About", href: "/about" }
     ]
   },
   {

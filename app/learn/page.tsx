@@ -4,6 +4,7 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { PageShell } from "@/components/PageShell";
 import { TrustSection } from "@/components/TrustSection";
 import { learnArticles } from "@/data/learn";
+import { darkPanelClass, inverseButtonClass } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -30,7 +31,7 @@ export default function LearnPage() {
           ))}
         </div>
 
-        <section className="mt-10 rounded-lg border border-ink/10 bg-night p-6 text-white">
+        <section className={`mt-10 ${darkPanelClass}`}>
           <h2 className="text-2xl font-semibold">Start with the main routine kit</h2>
           <p className="mt-3 max-w-2xl leading-7 text-white/72">
             The Sleep Reset Kit brings together simple tools for reducing distractions,
@@ -38,7 +39,7 @@ export default function LearnPage() {
           </p>
           <Link
             href="/products/sleep-reset-kit"
-            className="mt-5 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-mist"
+            className={`mt-5 ${inverseButtonClass}`}
           >
             View Sleep Reset Kit
           </Link>

@@ -37,6 +37,6 @@ export async function POST(request: Request) {
     success: true,
     persisted: false,
     message:
-      "Thanks. Your email was accepted in this pre-launch flow. Email storage will be connected before launch."
+      "Thanks. You are on the launch update list. Email storage will be connected before launch."
   });
 }

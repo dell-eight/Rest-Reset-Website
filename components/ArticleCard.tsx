@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { LearnArticle } from "@/data/learn";
+import { interactiveCardClass, textLinkClass } from "@/lib/ui";
 
 type ArticleCardProps = {
   article: LearnArticle;
@@ -7,7 +8,7 @@ type ArticleCardProps = {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <article className="flex h-full flex-col rounded-lg border border-ink/10 bg-white/75 p-5 shadow-soft">
+    <article className={`flex h-full flex-col ${interactiveCardClass}`}>
       <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage">
         {article.readTime}
       </p>
@@ -16,7 +17,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <p className="mt-4 text-sm font-medium text-ink/55">{article.audience}</p>
       <Link
         href={`/learn/${article.slug}`}
-        className="mt-auto inline-flex pt-6 text-sm font-semibold text-ink transition hover:text-clay"
+        className={`mt-auto pt-6 ${textLinkClass}`}
       >
         Read article
       </Link>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TrustSection } from "@/components/TrustSection";
 import { getArticleBySlug, learnArticles } from "@/data/learn";
+import { mutedCardClass, secondaryButtonClass } from "@/lib/ui";
 
 type LearnArticlePageProps = {
   params: Promise<{
@@ -53,7 +54,10 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
         <header className="border-b border-ink/10 bg-white/65">
           <div className="mx-auto max-w-3xl px-5 py-12 sm:px-6 lg:py-16">
             <nav aria-label="Breadcrumb" className="text-sm font-medium text-ink/60">
-              <Link href="/learn" className="transition hover:text-ink">
+              <Link
+                href="/learn"
+                className="rounded-full transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2"
+              >
                 Learn
               </Link>
               <span aria-hidden="true" className="px-2">
@@ -73,7 +77,7 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
         </header>
 
         <div className="mx-auto max-w-3xl px-5 py-12 sm:px-6">
-          <div className="rounded-lg border border-dashed border-ink/20 bg-clay/12 p-5">
+          <div className="rounded-xl border border-dashed border-ink/20 bg-clay/12 p-5">
             <p className="font-semibold text-ink">Responsible content note</p>
             <p className="mt-2 leading-7 text-ink/66">
               This article is educational and habit-focused. It is not medical advice
@@ -96,14 +100,14 @@ export default async function LearnArticlePage({ params }: LearnArticlePageProps
             ))}
           </div>
 
-          <section className="mt-10 rounded-lg border border-ink/10 bg-mist p-6">
+          <section className={`mt-10 ${mutedCardClass}`}>
             <h2 className="text-2xl font-semibold text-ink">Next steps</h2>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               {article.relatedLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-ink transition hover:bg-clay/15"
+                  className={secondaryButtonClass}
                 >
                   {link.label}
                 </Link>

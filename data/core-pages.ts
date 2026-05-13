@@ -35,7 +35,7 @@ export const faqItems = [
   {
     question: "How can I ask a support question?",
     answer:
-      "Use the contact form UI on the Contact page. Backend delivery will be connected in a later phase."
+      "Use the contact form on the Contact page. Support delivery will be connected before launch."
   }
 ] as const;
 
@@ -61,7 +61,7 @@ export const returnsNotes = [
   {
     title: "Return window",
     body:
-      "A final return window has not been set. Add a clear number of days after supplier and payment policies are confirmed."
+      "A final return window will be published after supplier and payment policies are confirmed."
   },
   {
     title: "Condition of items",

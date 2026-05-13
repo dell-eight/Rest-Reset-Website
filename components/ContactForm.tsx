@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { contactTopics } from "@/data/core-pages";
 import { trackEvent } from "@/lib/analytics";
+import { cardClass, formFieldClass, primaryButtonClass } from "@/lib/ui";
 
 type FormState = {
   status: "idle" | "loading" | "success" | "error";
@@ -57,7 +58,7 @@ export function ContactForm() {
         status: "success",
         message:
           result.message ??
-          "Thanks. Your message was accepted in this pre-launch flow."
+          "Thanks. Your message was received."
       });
       trackEvent("contact_form_submit", {
         topic: String(formData.get("topic") ?? ""),
@@ -73,8 +74,8 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-lg border border-ink/10 bg-white/75 p-6 shadow-soft">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className={cardClass}>
+      <div className="grid gap-4 md:grid-cols-2">
         <label className="text-sm font-semibold text-ink">
           Name
           <input
@@ -82,7 +83,7 @@ export function ContactForm() {
             type="text"
             required
             minLength={2}
-            className="mt-2 min-h-12 w-full rounded-lg border border-ink/15 bg-mist px-4 font-normal outline-none transition focus:border-clay focus:ring-2 focus:ring-clay/30"
+            className={`mt-2 w-full font-normal ${formFieldClass}`}
           />
         </label>
         <label className="text-sm font-semibold text-ink">
@@ -91,7 +92,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="mt-2 min-h-12 w-full rounded-lg border border-ink/15 bg-mist px-4 font-normal outline-none transition focus:border-clay focus:ring-2 focus:ring-clay/30"
+            className={`mt-2 w-full font-normal ${formFieldClass}`}
           />
         </label>
       </div>
@@ -99,7 +100,7 @@ export function ContactForm() {
         Topic
         <select
           name="topic"
-          className="mt-2 min-h-12 w-full rounded-lg border border-ink/15 bg-mist px-4 font-normal outline-none transition focus:border-clay focus:ring-2 focus:ring-clay/30"
+          className={`mt-2 w-full font-normal ${formFieldClass}`}
         >
           {contactTopics.map((topic) => (
             <option key={topic}>{topic}</option>
@@ -113,13 +114,14 @@ export function ContactForm() {
           required
           minLength={10}
           rows={6}
-          className="mt-2 w-full rounded-lg border border-ink/15 bg-mist px-4 py-3 font-normal outline-none transition focus:border-clay focus:ring-2 focus:ring-clay/30"
+          className={`mt-2 w-full py-3 font-normal ${formFieldClass}`}
         />
       </label>
       <button
         type="submit"
         disabled={formState.status === "loading"}
-        className="mt-5 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-night focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-ink/45"
+        aria-busy={formState.status === "loading"}
+        className={`mt-5 ${primaryButtonClass} md:w-auto disabled:cursor-not-allowed disabled:bg-ink/45 disabled:shadow-none`}
       >
         {formState.status === "loading" ? "Sending..." : "Send message"}
       </button>

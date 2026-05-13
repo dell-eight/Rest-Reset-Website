@@ -55,10 +55,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} font-sans antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lift focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2"
+        >
+          Skip to main content
+        </a>
         <div className="flex min-h-screen flex-col">
           <Analytics />
           <Header />
-          <main className="flex-1 pb-20 md:pb-0">{children}</main>
+          <main id="main-content" className="flex-1 pb-28 md:pb-0">
+            {children}
+          </main>
           <Footer />
           <StickyMobileCta />
         </div>

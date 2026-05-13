@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { mutedCardClass, secondaryButtonClass, sectionEyebrowClass } from "@/lib/ui";
 
 const fitGuideItems = [
   {
@@ -33,12 +34,10 @@ const fitGuideItems = [
 
 export function ProductFitGuide() {
   return (
-    <section className="border-y border-ink/10 bg-white/65">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
+    <section className="border-y border-ink/10 bg-linen/70">
+      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sage">
-            Choose by need
-          </p>
+          <p className={sectionEyebrowClass}>Choose by need</p>
           <h2 className="mt-3 text-3xl font-semibold text-ink">
             Not sure where to start?
           </h2>
@@ -49,13 +48,13 @@ export function ProductFitGuide() {
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {fitGuideItems.map((item) => (
-            <article key={item.need} className="rounded-lg border border-ink/10 bg-mist p-5">
+            <article key={item.need} className={`${mutedCardClass} flex h-full flex-col`}>
               <p className="text-sm font-semibold text-clay">{item.need}</p>
               <h3 className="mt-3 text-xl font-semibold text-ink">{item.recommendation}</h3>
-              <p className="mt-3 leading-7 text-ink/66">{item.reason}</p>
+              <p className="mt-3 flex-1 leading-7 text-ink/66">{item.reason}</p>
               <Link
                 href={item.href}
-                className="mt-5 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-clay/15 focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2"
+                className={`mt-5 ${secondaryButtonClass}`}
               >
                 View recommendation
               </Link>

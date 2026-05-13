@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { cardClass, formFieldClass, primaryButtonClass } from "@/lib/ui";
 
 type FormState = {
   status: "idle" | "loading" | "success" | "error";
@@ -59,7 +60,7 @@ export function EmailCaptureForm({ source = "homepage-sleep-reset-checklist" }: 
         status: "success",
         message:
           result.message ??
-          "Thanks. Your email was accepted in this pre-launch flow."
+          "Thanks. You are on the launch update list."
       });
       trackEvent("email_signup_submit", {
         source,
@@ -75,13 +76,13 @@ export function EmailCaptureForm({ source = "homepage-sleep-reset-checklist" }: 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-lg border border-ink/10 bg-white p-5 shadow-soft">
-      <div className="mb-5 rounded-lg bg-mist p-4">
+    <form onSubmit={handleSubmit} className={cardClass}>
+      <div className="mb-5 rounded-xl bg-foam p-4">
         <p className="text-sm font-semibold text-ink">What you get</p>
         <ul className="mt-3 space-y-2 text-sm leading-6 text-ink/64">
           <li>3-minute evening reset checklist</li>
           <li>Simple light, sound, and routine prompts</li>
-          <li>Beginner-friendly setup for screen-heavy days</li>
+          <li>Launch updates before ordering opens</li>
         </ul>
       </div>
       <label htmlFor="name" className="text-sm font-semibold text-ink">
@@ -92,26 +93,27 @@ export function EmailCaptureForm({ source = "homepage-sleep-reset-checklist" }: 
         name="name"
         type="text"
         placeholder="Your name"
-        className="mt-3 min-h-12 w-full rounded-lg border border-ink/15 bg-mist px-4 text-ink outline-none transition placeholder:text-ink/40 focus:border-clay focus:ring-2 focus:ring-clay/30"
+        className={`mt-3 w-full ${formFieldClass}`}
       />
       <label htmlFor="email" className="mt-4 block text-sm font-semibold text-ink">
         Email address
       </label>
-      <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-3 flex flex-col gap-3 md:flex-row">
         <input
           id="email"
           name="email"
           type="email"
           required
           placeholder="you@example.com"
-          className="min-h-12 flex-1 rounded-lg border border-ink/15 bg-mist px-4 text-ink outline-none transition placeholder:text-ink/40 focus:border-clay focus:ring-2 focus:ring-clay/30"
+          className={`flex-1 ${formFieldClass}`}
         />
         <button
           type="submit"
           disabled={formState.status === "loading"}
-          className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-night focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-ink/45"
+          aria-busy={formState.status === "loading"}
+          className={`${primaryButtonClass} md:w-auto disabled:cursor-not-allowed disabled:bg-ink/45 disabled:shadow-none`}
         >
-          {formState.status === "loading" ? "Sending..." : "Send checklist"}
+          {formState.status === "loading" ? "Sending..." : "Get the checklist"}
         </button>
       </div>
       <p

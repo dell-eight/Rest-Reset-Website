@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { PageShell } from "@/components/PageShell";
 import { contactTopics } from "@/data/core-pages";
+import { mutedCardClass } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,11 +17,11 @@ export default function ContactPage() {
       description="Send a product, support, or operations question before ordering opens."
     >
       <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-lg border border-ink/10 bg-mist p-6">
+        <aside className={mutedCardClass}>
           <h2 className="text-xl font-semibold text-ink">Common topics</h2>
           <ul className="mt-5 space-y-3 text-sm leading-6 text-ink/68">
             {contactTopics.map((topic) => (
-              <li key={topic} className="rounded-lg bg-white/75 p-3">
+              <li key={topic} className="rounded-xl bg-white/75 p-3 shadow-subtle">
                 {topic}
               </li>
             ))}

@@ -28,6 +28,7 @@ ai_agents/
 docs/ai-agents/
 docs/build-phases/
 phases_ai_prompts/
+uiux_aesthetic_promp_by_phases/
 
 # system files
 .DS_Store
